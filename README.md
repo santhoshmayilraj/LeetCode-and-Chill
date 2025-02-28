@@ -1,8 +1,4 @@
 # LeetCode & Chill 🍿
-
-![LeetCode & Chill](![image](https://github.com/user-attachments/assets/4396bc27-866f-48f1-9f44-6366511e8b1a)
-)
-
 ## Welcome to the Grind 💻
 
 Hi Again, This is Santhosh, your friendly neighbourhood coder. Alright, let’s do this one last time. Let me explain my story one last time—this is my LeetCode & Chill store.
