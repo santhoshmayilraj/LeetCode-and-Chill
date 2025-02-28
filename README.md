@@ -1,7 +1,7 @@
 # LeetCode & Chill 🍿
 ## Welcome to the Grind 💻
 
-Hi Again, This is Santhosh, your friendly neighbourhood coder. Alright, let’s do this one last time. Let me explain my story one last time—this is my LeetCode & Chill store.
+Hi Again, This is Santhosh, your friendly neighbourhood coder. Alright, let’s do this one last time—this is my LeetCode & Chill store.
 This repo is my 12-step program to solving LeetCode problems.
 
 ### 🛠 The Process:
