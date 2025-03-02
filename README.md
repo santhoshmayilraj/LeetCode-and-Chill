@@ -16,7 +16,7 @@ This repo is my 12-step program to solving LeetCode problems.
 
 ## 📂 What's Inside?
 
-- **Solutions**: My attempts at solving LeetCode problems, categorized by difficulty.
+- **Solutions**: My attempts at solving LeetCode problems.
 - **Notes**: Some explanations, approaches, and gotchas I encountered.
 - **Fails**: Because let’s be honest, debugging is half the journey.
 
