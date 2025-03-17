@@ -5,8 +5,9 @@ public:
         {
             return 0;
         }
-        sort(candies.begin(),candies.end());
-        int ans(0),l(0),r(candies[candies.size()-1]);
+        // sort(candies.begin(),candies.end());
+        int ans(0),l(0);
+        int r = *max_element(candies.begin(),candies.end());
         while(l<=r)
         {
             int mid = (l+r)/2;
