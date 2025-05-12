@@ -35,3 +35,7 @@ This repo is my 12-step program to solving LeetCode problems.
 
 Feel free to fork, star ⭐, or even submit PRs if you have a cleaner, better, or funnier way to solve problems.
 
+With great code comes great responsibility... this is my gift, my curse. Who am I? Your friendly neighbourhood coder.
+
+
+
