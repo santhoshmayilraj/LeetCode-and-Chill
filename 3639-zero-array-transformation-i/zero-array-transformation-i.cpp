@@ -7,13 +7,11 @@ public:
             prefsum[i[0]]++;
             prefsum[i[1]+1]--;
         }
-        for(int i=1;i<prefsum.size();i++)
-        {
-            prefsum[i] = prefsum[i] + prefsum[i-1];
-        }
+        int prev = 0;
         for(int i=0;i<nums.size();i++)
         {
-            nums[i] = nums[i] - prefsum[i];
+            prev += prefsum[i];
+            nums[i] = nums[i] - prev;
             if(nums[i] > 0)
             {
                 return false;
