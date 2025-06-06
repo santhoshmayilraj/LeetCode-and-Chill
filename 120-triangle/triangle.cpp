@@ -1,4 +1,4 @@
-class Solution {
+class Solution { // this is the bottom-up approach 
 public:
     int minimumTotal(vector<vector<int>>& triangle) {
         vector<vector<int>> dp = triangle;
