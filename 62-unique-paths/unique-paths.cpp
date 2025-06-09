@@ -6,6 +6,7 @@ public:
         {
             return 0;
         }
+        // normal bottom-up uses O(m*n) space complexity but right now it uses only O(n) size;
         vector<int> dp(n,1);
         for(int i=1;i<m;i++)
         {
