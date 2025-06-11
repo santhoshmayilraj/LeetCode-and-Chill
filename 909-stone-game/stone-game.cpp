@@ -1,4 +1,4 @@
-class Solution { // min-max algorithm
+class Solution { // min-max algorithm with dynamic programming ( top-down memoization )
 public:
     bool stoneGame(vector<int>& piles) {
         bool flag = true;
