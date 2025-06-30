@@ -1,19 +1,18 @@
-class Solution {
+class Solution { // greedy approach 
 public:
     bool canJump(vector<int>& nums) {
-        int n = nums.size();
-        vector<bool> dp(n, false);
-        dp[n - 1] = true; 
-
-        for (int i = n - 2; i >= 0; i--) {
-            for (int j = 1; j <= nums[i]; j++) {
-                if (i + j < n && dp[i + j]) {
-                    dp[i] = true;
-                    break;
-                }
+        int max_jump = nums[0];
+        for(int i=1;i<nums.size();i++)
+        {
+            if(i<= max_jump)
+            {
+                max_jump = max(max_jump,i+nums[i]);
+            }
+            else
+            {
+                return false;
             }
         }
-
-        return dp[0];
+        return true;
     }
 };
