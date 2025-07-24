@@ -52,7 +52,7 @@ public:
                 right_near = helper(root->right,hash);
             }
         }
-        int max_val = max({right_near+left_max,left_near+right_max,left_max+right_max+root->val,left_near+right_near});
+        int max_val = max({left_max+right_max+root->val,left_near+right_near});
         hash[root] = max_val;
         return max_val;
     }
