@@ -13,56 +13,32 @@ class Solution {
 public:
     int pathSum(TreeNode* root, int targetSum) {
         int count = 0;
-        unordered_map<TreeNode*,vector<long long>> hash;
-        if(!root)
-        {
-            return count;
-        }
-        helper(root,count,targetSum,hash);
+        unordered_map<long,int> hash;
+        hash[0] = 1;
+        helper(root,targetSum,hash,count,0);
         return count;
     }
 
-    void helper(TreeNode* root,int &count,int targetSum,unordered_map<TreeNode*,vector<long long>> &hash)
+    void helper(TreeNode* root,int targetSum,unordered_map<long,int> &hash,int &count,long curr_sum)
     {
-        if(!root->left and !root->right)
+        if(!root)
         {
-            if(root->val == targetSum)
-            {
-                count++;
-            }
-            hash[root].push_back(root->val+0ll);
             return;
         }
+        curr_sum += root->val + 0l;
+        if(hash[curr_sum-targetSum])
+        {
+            count += hash[curr_sum-targetSum];
+        }
+        hash[curr_sum]++;
         if(root->left)
         {
-            helper(root->left,count,targetSum,hash);
-            for(long long i:hash[root->left])
-            {
-                if(root->val+i+0ll == targetSum)
-                {
-                    count++;
-                }
-                hash[root].push_back(root->val+i+0ll);
-            }
-        }
+            helper(root->left,targetSum,hash,count,curr_sum);
+        }                
         if(root->right)
         {
-            helper(root->right,count,targetSum,hash);
-            for(long long i:hash[root->right])
-            {
-                if(root->val+i+0ll == targetSum)
-                {
-                    count++;
-                }
-                hash[root].push_back(root->val+i+0ll);
-            }
+            helper(root->right,targetSum,hash,count,curr_sum);
         }
-        if(root->val==targetSum)
-        {
-            count++;
-        }       
-        hash[root].push_back(root->val+0ll);
-        return;      
-         
+        hash[curr_sum]--;
     }
 };
