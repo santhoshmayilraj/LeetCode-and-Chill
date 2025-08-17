@@ -1,10 +1,25 @@
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
-        int ans = 0;
-        vector<vector<vector<int>>> dp(prices.size(),vector<vector<int>>(2,vector<int>(3,-1)));
-        ans = helper(0,prices,1,2,dp);
-        return ans;
+        vector<vector<vector<int>>> dp(prices.size()+1,vector<vector<int>>(2,vector<int>(3,0)));
+        for(int i=prices.size()-1;i>=0;i--)
+        {
+            for(int j=0;j<2;j++)
+            {
+                for(int k=1;k<3;k++)
+                {
+                    if(j==1)
+                    {
+                        dp[i][j][k] = max((-prices[i] + dp[i+1][0][k]),dp[i+1][1][k]);
+                    }
+                    else
+                    {
+                        dp[i][j][k] = max((prices[i]+dp[i+1][1][k-1]),dp[i+1][0][k]);
+                    }
+                }
+            }
+        }
+        return dp[0][1][2];        
     }
 
     int helper(int curr,vector<int> &prices,int buy,int trans,vector<vector<vector<int>>> &dp)
