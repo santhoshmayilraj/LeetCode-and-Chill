@@ -1,26 +1,22 @@
-#include <vector>
-#include <algorithm>
-using namespace std;
-
 class Solution {
 public:
+    int dfs(vector<int> &nums,int i,int j,vector<vector<int>> &dp){
+        if(dp[i][j] != -1){
+            return dp[i][j];
+        }
+        int curr_score = INT_MIN;
+        curr_score = max(curr_score, nums[j] - dfs(nums,i,j-1,dp));
+        curr_score = max(curr_score, nums[i] - dfs(nums,i+1,j,dp));
+        return curr_score;
+    }
     bool predictTheWinner(vector<int>& nums) {
-        int n = nums.size();
-        vector<vector<int>> dp(n, vector<int>(n, 0));
-
-        // Base case: when i == j
-        for (int i = 0; i < n; i++) {
-            dp[i][i] = nums[i];
+        int i=0;
+        int j=nums.size()-1;
+        vector<vector<int>> dp(nums.size(),vector<int>(nums.size(),-1));
+        for(int k=0;k<nums.size();k++){
+            dp[k][k] = nums[k];
         }
-
-        // Fill DP for subarrays of length 2 to n
-        for (int len = 2; len <= n; len++) {
-            for (int i = 0; i + len - 1 < n; i++) {
-                int j = i + len - 1;
-                dp[i][j] = max(nums[i] - dp[i+1][j], nums[j] - dp[i][j-1]);
-            }
-        }
-
-        return dp[0][n-1] >= 0;
+        int ans = dfs(nums,i,j,dp);
+        return ans > -1;
     }
 };
